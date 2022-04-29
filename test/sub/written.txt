@@ -1,0 +1,1 @@
+Here is the file written using node js hello i am reading this file using read file sync method

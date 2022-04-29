@@ -1,1 +1,1 @@
-test text
+hello i am reading this file using read file sync method
