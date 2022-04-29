@@ -1,0 +1,23 @@
+{
+  "name": "IsolatedContainer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kripu77/IsolatedContainer.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kripu77/IsolatedContainer/issues"
+  },
+  "homepage": "https://github.com/Kripu77/IsolatedContainer#readme"
+}
