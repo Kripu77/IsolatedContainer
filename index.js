@@ -49,23 +49,25 @@ const { writeFile } = require("fs/promises");
 // //    else console.log('the file has been written');
 
 // })
- fs.readFile("./test/sub/written.txt", "utf-8", (err, Fresult) => {
-  if (err) throw err;
-  console.log(Fresult)
-  if (Fresult) {
-   fs.readFile("./test/sub/text.txt", "utf-8", (err, sresullt) => {
-       console.log(sresullt)
-      if (sresullt) {
-        if (err) throw err;
-        fs.writeFile(
-          "./test/sub/written.html",
-          `<h1> ${Fresult} ${sresullt} </h1>`,
-          (err, result) => {
-            if (err) throw err;
-            console.log(result)
-          }
-        );
-      }
-    });
-  }
-});
+//  fs.readFile("./test/sub/written.txt", "utf-8", (err, Fresult) => {
+//   if (err) throw err;
+//   console.log(Fresult)
+//   if (Fresult) {
+//    fs.readFile("./test/sub/text.txt", "utf-8", (err, sresullt) => {
+//        console.log(sresullt)
+//       if (sresullt) {
+//         if (err) throw err;
+//         fs.writeFile(
+//           "./test/sub/written.html",
+//           `<h1> ${Fresult} ${sresullt} </h1>`,
+//           (err, result) => {
+//             if (err) throw err;
+//             console.log(result)
+//           }
+//         );
+//       }
+//     });
+//   }
+// });
+
+console.log("hola")
