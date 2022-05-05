@@ -140,29 +140,28 @@ const getText = (path) => {
 //   console.log(data);
 // });
 
-
-
 //using async await approach
 
-const start= async()=>{
+const start = async () => {
+  try {
+    const firstFile = await getText("./test/sub/text.txt");
+    console.log(firstFile);
 
-  try{  const firstFile = await getText('./test/sub/text.txt')
-    console.log(firstFile)
+    const secondFile = await getText("./test/sub/written.txt");
+    console.log(secondFile);
 
-    const secondFile = await getText('./test/sub/written.txt')
-    console.log(secondFile)
+    fs.writeFile(
+      "write.html",
+      `<h1> New file ${firstFile} </h1>`,
+      (err, result) => {
+        if (err) {
+          throw err;
+        }
+      }
+    );
+  } catch (err) {
+    console.log(err);
+  }
+};
 
-    fs.writeFile('write.html', `<h1> New file ${firstFile} </h1>` , (err, result)=>{
-if(err){
-    throw err
-}
-    })
-
-
-}
-catch(err){
-    console.log(err)
-}
-}
-
-start()
+start();
