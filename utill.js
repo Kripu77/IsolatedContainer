@@ -157,19 +157,275 @@
 
 // //  fs.readFile('./test/sub/bigData.txt', "utf-8", (err, res)=>{
 // // if(err) throw err;
-// // if(res) console.log(res)
+// // // if(res) console.log(res)
+// // // })
+
+// // // test();
+
+// const {createReadStream} = require('fs');
+
+// const stream = createReadStream('./test/sub/bigData.txt', {highWaterMark:100});
+
+// stream.on('data', (res)=>{
+
+//     console.log(res);
+
+// })
+
+// stream.emit('data')
+
+
+// // const {createReadStream} = require('fs');
+
+// // const stream = createReadStream('./test/sub/bigData.txt'
+// // )
+
+// // stream.on('Data received', (resp)=>{
+// // console.log(resp)
 // // })
 
-// test();
+// // stream.emit('Data received')
+// // const {createReadStream} = require('fs');
 
-const {createReadStream} = require('fs');
 
-const stream = createReadStream('./test/sub/bigData.txt', {highWaterMark:900000, encoding:'utf-8'});
+// // const stream = createReadStream('./test/sub/bigData.txt', {highWaterMark:1000, encoding:'utf-8'});
 
-stream.on('data', (res)=>{
+// // stream.on('data', (res)=>{
 
-    console.log(res);
+// //     console.log(res)
+// // })
+// // stream.emit('data')
+
+
+// // const {createReadStream} = require('fs');
+
+
+// // const stream = createReadStream('./test/sub/file.txt');
+
+// // stream.on('data', (res)=>{
+
+
+// //     console.log(res.length);
+
+
+// // })
+
+
+
+// // const event = require('events');
+
+// // const eventEmitter = new event();
+
+// // eventEmitter.on('data', (nodemxx)=>{
+// //     console.log(nodemxx)
+// // })
+
+// // eventEmitter.emit('data', 'badBunny')
+
+
+// const http = require('http');
+// const {createReadStream} = require('fs')
+
+
+// const data=[]
+
+
+// const port =8080;
+
+// const server = http.createServer((req,res)=>{
+
+// const stream = createReadStream("./test/sub/bigFile.txt", {
+//   encoding: "utf-8",
+// });
+
+// stream.on("data", () => {
+//  stream.pipe(res)
+// });
+
+
+// // stream.on('error', (err)=>{
+// //     console.log(err)
+
+// // })
+// // })
+
+// // server.listen(port)
+
+// const fs = require('fs');
+// const http = require('http');
+// const path = require('path')
+
+// // console.log(path.resolve(__dirname))
+// //create a server
+
+// const server = http.createServer((req, res)=>{
+
+//     //initialise our stream
+
+//     const stream = fs.createReadStream('./test/sub/bigFile.txt', {encoding:'utf-8'})
+
+//     stream.on('data packets', ()=>{
+//         stream.pipe(res)
+//     })
+
+//     stream.on('error', (err)=>console.log(err))
+
+// })
+
+// server.listen(3000)
+
+
+// const {createReadStream} = require('fs');
+// const {createServer} = require('http');
+
+
+// const port = 3000;
+
+// const server = createServer((req, res)=>{
+
+//initialise stream
+
+// const stream = createReadStream('./test/sub/bigFile.txt')
+// stream.on('data', ()=>{
+//    stream.pipe(res)
+// })
+
+// stream.on('error', (err)=>{
+// console.log(err)
+// })
+
+
+// })
+
+// server.listen(port)
+
+// const onjectxx = [
+   
+//   {data:"Bottled Water",
+//   word:10
+//   },
+//    {data:"Apple Juice",
+//   word:9.2
+//   }, 
+//    {data:"Big Mac",
+//   word:2
+//   }
+
+
+// ]
+
+// const fs = require('fs');
+// // fs.writeFile('./test.csv', `products, price\n`, (err, res)=>{
+// //    console.log(err)
+// // })
+// function dataWriter (onject, path){
+
+
+//    onject.map((value, index) => {
+//      console.log(value.data);
+
+//      fs.writeFile(
+//        path,
+//        `${value.data}, $${value.word} \n`,
+//        { flag: "a" },
+//        (err) => {
+//          console.log(err);
+//        }
+//      );
+//    });
+// }
+
+
+// dataWriter(onjectxx, "./test.csv")
+// const fs = require('fs');
+
+// const fileReader = fs.createReadStream('./test/sub/text.csv', {encoding:'utf-8'})
+
+
+// fileReader.on('data', (data)=>{
+
+
+//    fs.writeFile('./data.csv', data, (err)=>{
+// console.log(err)
+//    })
+// })
+
+// const fs = require('fs');
+
+// const streamReader = fs.createReadStream('./test.xlsx',{encoding:'utf-8'})
+
+// streamReader.on('data', (res)=>{
+// console.log(res)
+// })
+
+// streamReader.on('error', (err)=>{
+//    console.log(err)
+// })
+
+// const fs = require('fs')
+// const http = require('http')
+
+// const port =8080;
+
+// const server = http.createServer((req, res)=>{
+
+
+//    // const fR = fs.readFile('./test.csv', 'utf-8', (err, data)=>{
+
+//    //    res.end(data)
+//    // })
+//   const streamDataSender= fs.createReadStream('./test/sub/bigFile.txt');
+
+//   streamDataSender.on('data', ()=>{
+
+
+//    streamDataSender.pipe(res)
+//   })
+
+
+// })
+
+// server.listen(port)
+
+const http = require('http');
+const fs = require('fs');
+
+
+const homepage = fs.readFileSync('test/sub/async.html')
+
+const port =8080;
+
+const server = http.createServer((req,res)=>{
+
+console.log(req.method)
+console.log(req.url)
+   
+res.writeHead(401, { "content-type": "text/link" });
+
+
+   if(req.url === '/'){
+
+res.end("https:/www.kripukhadka.com")
+
+
+   }  
+
+
+ if(req.url==='/about')  {
+
+res.write("<h1> About Page... </h1>")
+   }
+      
+
+   else{
+      res.writeHead(401, { "content-type": "text/plain" });
+res.write("no docs found");
+ 
+   } 
+
+
+   res.end();
 
 })
 
-stream.emit('data')
+server.listen(port)
