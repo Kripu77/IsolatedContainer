@@ -1,13 +1,16 @@
-const express = require('express');
+const http = require('http');
+const fs = require('fs');
+const util = require("util")
+const fileReader = util.promisify(fs.readFile);
 
-const app = express();
 
-// console.log(app);
+const dataxx = async()=>{
+const fileReaderxx=await fileReader("../test/sub/file.txt", {encoding:"utf-8"})
+console.log(fileReaderxx)
+}
 
-app.get('/', (req, res)=>{
-res.send('get request performed')
-})
+console.log(dataxx())
 
-app.listen(5000, ()=>{
-console.log("express server running on port 5000")
-})
+http.createServer((req, res)=>{
+
+}).listen(3000)
