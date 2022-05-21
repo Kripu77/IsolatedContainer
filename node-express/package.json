@@ -2,14 +2,16 @@
   "name": "tutorial",
   "version": "1.0.0",
   "description": "learning express",
-  "main": "app.js",
+  "main": "new.js",
   "scripts": {
-    "start": "nodemon app.js",
+    "start": "nodemon new.js",
     "test": "npm start"
   },
   "author": "Kripu Khadka",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.18.1"
+    "express": "^4.18.1",
+    "node-cron": "^3.0.0",
+    "nodemailer": "^6.7.5"
   }
 }
