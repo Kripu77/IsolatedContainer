@@ -4,6 +4,8 @@ const {readFile}= require('fs');
 const util = require('util');
 const fileReader = util.promisify(readFile);
 const {data } = require('./data/road.js')
+const path = require('path');
+const errorHtml = path.resolve(__dirname, "../public/404.html")
 
 //server static index.html page with required CSS 
 app.use(express.static("../public"))
@@ -42,10 +44,32 @@ return res.status(200).json(newData)
 
 
 })
+
+//the query string parameter
+
+app.get("/api/v1/query", (req, res)=>{
+
+  const {search, limit}= req.query;
+  console.log(req.query)
+
+ let sortedProducts = [...data];
+
+ if(search){
+sortedProducts.filter((datxx)=>{
+return datxx.name.includes(search)
+})
+ }
+
+ if(limit){
+ sortedProducts=  sortedProducts.slice(0, Number(limit))
+ }
+
+ res.json(sortedProducts)
+})
 // //catch all routes
 app.get("*", (req, res)=>{
 
-    res.status(404).send("<h1>The page doesnot exists or is temproarliy down contact your site Admin </h1>")})
+    res.status(404).sendFile(errorHtml)})
 
 app.listen(8080, ()=>{
     console.log("Server running on port 8080")

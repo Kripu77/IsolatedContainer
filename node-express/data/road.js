@@ -1,7 +1,7 @@
 const data = [
   {
     no: 1,
-    name: "Felicity Rosenbaum",
+    name: "Felicity-Rosenbaum",
     age: 54,
     tel: "1-750-681-9279",
     email: "elaina.schneider@gmail.com",
