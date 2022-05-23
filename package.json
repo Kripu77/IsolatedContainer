@@ -8,7 +8,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon utill.js"
+    "start": "nodemon utill.js",
+    "build": "npm run-script build"
   },
   "repository": {
     "type": "git",

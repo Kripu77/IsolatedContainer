@@ -374,58 +374,72 @@
 
 //    //    res.end(data)
 //    // })
-//   const streamDataSender= fs.createReadStream('./test/sub/bigFile.txt');
+// //   const streamDataSender= fs.createReadStream('./test/sub/bigFile.txt');
 
-//   streamDataSender.on('data', ()=>{
+// //   streamDataSender.on('data', ()=>{
 
 
-//    streamDataSender.pipe(res)
-//   })
+// //    streamDataSender.pipe(res)
+// //   })
 
+
+// // })
+
+// // server.listen(port)
+
+// const http = require('http');
+// const fs = require('fs');
+
+
+// const homepage = fs.readFileSync('test/sub/async.html')
+
+// const port =8080;
+
+// const server = http.createServer((req,res)=>{
+
+// console.log(req.method)
+// console.log(req.url)
+   
+// res.writeHead(401, { "content-type": "text/link" });
+
+
+//    if(req.url === '/'){
+
+// res.end("https:/www.kripukhadka.com")
+
+
+//    }  
+
+
+//  if(req.url==='/about')  {
+
+// res.write("<h1> About Page... </h1>")
+//    }
+      
+
+//    else{
+//       res.writeHead(401, { "content-type": "text/plain" });
+// res.write("no docs found");
+ 
+//    } 
+
+
+//    res.end();
 
 // })
 
 // server.listen(port)
 
-const http = require('http');
-const fs = require('fs');
+const data = [1,2,3];
+const string ="Kripu";
+const number =123;
+const object ={
+   key:'value'
+}
+console.log(data)
+console.log(!data )
 
-
-const homepage = fs.readFileSync('test/sub/async.html')
-
-const port =8080;
-
-const server = http.createServer((req,res)=>{
-
-console.log(req.method)
-console.log(req.url)
-   
-res.writeHead(401, { "content-type": "text/link" });
-
-
-   if(req.url === '/'){
-
-res.end("https:/www.kripukhadka.com")
-
-
-   }  
-
-
- if(req.url==='/about')  {
-
-res.write("<h1> About Page... </h1>")
-   }
-      
-
-   else{
-      res.writeHead(401, { "content-type": "text/plain" });
-res.write("no docs found");
- 
-   } 
-
-
-   res.end();
-
-})
-
-server.listen(port)
+console.log(typeof data)
+console.log(typeof string)
+console.log(typeof number)
+console.log(typeof object)
