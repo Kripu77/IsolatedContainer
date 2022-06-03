@@ -430,16 +430,61 @@
 
 // server.listen(port)
 
-const data = [1,2,3];
-const string ="Kripu";
-const number =123;
-const object ={
-   key:'value'
-}
-console.log(data)
-console.log(!data )
+// const data = [1,2,3];
+// const string ="Kripu";
+// const number =123;
+// const object ={
+//    key:'value'
+// }
+// console.log(data)
+// console.log(!data )
 
-console.log(typeof data)
-console.log(typeof string)
-console.log(typeof number)
-console.log(typeof object)
+// console.log(typeof data)
+// console.log(typeof string)
+// console.log(typeof number)
+// console.log(typeof object)
+
+
+const exceljs = require('exceljs');
+
+console.log(exceljs)
+
+//new workbook
+
+const workbook = new exceljs.Workbook();
+workbook.creator = 'Kripu Khadka';
+workbook.lastModifiedBy ='Bot';
+workbook.created = new Date(2022, 06, 02);
+workbook.modified = new Date();
+workbook.lastPrinted = new Date()
+
+
+//const worksheet = workbook.addWorksheet('New Sheet');
+
+//config for worksheet
+const worksheet = workbook.addWorksheet('New Sheet', {
+  headerFooter: {oddFooter: "Page &P of &N", oddHeader: 'Odd Page'}
+});
+worksheet.columns = [
+  { header: "Id", key: "id" },
+  { header: "Name", key: "name" },
+  { header: "Age", key: "age" },
+];
+
+// const idCol = worksheet.getColumn("id");
+ const nameCol = worksheet.getColumn("B");
+// const ageCol = worksheet.getColumn(3);
+const data = ["store"]
+
+
+const row = worksheet.addRows([
+
+   ["Kripu", "Khadka", "hola" ,"\n", "New", "Line"],
+  
+]);
+
+//await workbook.xlsx.writeFile(filename);
+async function test(){
+await workbook.xlsx.writeFile("exceljs.xlsx");
+}
+test();

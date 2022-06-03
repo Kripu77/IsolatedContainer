@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/Kripu77/IsolatedContainer#readme",
   "dependencies": {
+    "exceljs": "^4.3.0",
     "hello.js": "^1.0.0",
     "nodemon": "^2.0.16"
   }
