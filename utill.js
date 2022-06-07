@@ -383,108 +383,137 @@
 // //   })
 
 
+// // // })
+
+// // // server.listen(port)
+
+// // const http = require('http');
+// // const fs = require('fs');
+
+
+// // const homepage = fs.readFileSync('test/sub/async.html')
+
+// // const port =8080;
+
+// // const server = http.createServer((req,res)=>{
+
+// // console.log(req.method)
+// // console.log(req.url)
+   
+// // res.writeHead(401, { "content-type": "text/link" });
+
+
+// //    if(req.url === '/'){
+
+// // res.end("https:/www.kripukhadka.com")
+
+
+// //    }  
+
+
+// //  if(req.url==='/about')  {
+
+// // res.write("<h1> About Page... </h1>")
+// //    }
+      
+
+// //    else{
+// //       res.writeHead(401, { "content-type": "text/plain" });
+// // res.write("no docs found");
+ 
+// //    } 
+
+
+// //    res.end();
+
 // // })
 
 // // server.listen(port)
 
-// const http = require('http');
-// const fs = require('fs');
+// // const data = [1,2,3];
+// // const string ="Kripu";
+// // const number =123;
+// // const object ={
+// //    key:'value'
+// // }
+// // console.log(data)
+// // console.log(!data )
+
+// // console.log(typeof data)
+// // console.log(typeof string)
+// // console.log(typeof number)
+// // console.log(typeof object)
 
 
-// const homepage = fs.readFileSync('test/sub/async.html')
+// const exceljs = require('exceljs');
 
-// const port =8080;
+// console.log(exceljs)
 
-// const server = http.createServer((req,res)=>{
+// //new workbook
 
-// console.log(req.method)
-// console.log(req.url)
-   
-// res.writeHead(401, { "content-type": "text/link" });
-
-
-//    if(req.url === '/'){
-
-// res.end("https:/www.kripukhadka.com")
+// const workbook = new exceljs.Workbook();
+// workbook.creator = 'Kripu Khadka';
+// workbook.lastModifiedBy ='Bot';
+// workbook.created = new Date(2022, 06, 02);
+// workbook.modified = new Date();
+// workbook.lastPrinted = new Date()
 
 
-//    }  
+// // //const worksheet = workbook.addWorksheet('New Sheet');
+
+// // //config for worksheet
+// // const worksheet = workbook.addWorksheet('New Sheet', {
+// //   headerFooter: {oddFooter: "Page &P of &N", oddHeader: 'Odd Page'}
+// // });
+// // worksheet.columns = [
+// //   { header: "Id", key: "id" },
+// //   { header: "Name", key: "name" },
+// //   { header: "Age", key: "age" },
+// // ];
+
+// // // const idCol = worksheet.getColumn("id");
+// //  const nameCol = worksheet.getColumn("B");
+// // // const ageCol = worksheet.getColumn(3);
+// // const data = ["store"]
 
 
-//  if(req.url==='/about')  {
+// // const row = worksheet.addRows([
 
-// res.write("<h1> About Page... </h1>")
-//    }
-      
-
-//    else{
-//       res.writeHead(401, { "content-type": "text/plain" });
-// res.write("no docs found");
- 
-//    } 
-
-
-//    res.end();
-
-// })
-
-// server.listen(port)
-
-// const data = [1,2,3];
-// const string ="Kripu";
-// const number =123;
-// const object ={
-//    key:'value'
-// }
-// console.log(data)
-// console.log(!data )
-
-// console.log(typeof data)
-// console.log(typeof string)
-// console.log(typeof number)
-// console.log(typeof object)
-
-
-const exceljs = require('exceljs');
-
-console.log(exceljs)
-
-//new workbook
-
-const workbook = new exceljs.Workbook();
-workbook.creator = 'Kripu Khadka';
-workbook.lastModifiedBy ='Bot';
-workbook.created = new Date(2022, 06, 02);
-workbook.modified = new Date();
-workbook.lastPrinted = new Date()
-
-
-//const worksheet = workbook.addWorksheet('New Sheet');
-
-//config for worksheet
-const worksheet = workbook.addWorksheet('New Sheet', {
-  headerFooter: {oddFooter: "Page &P of &N", oddHeader: 'Odd Page'}
-});
-worksheet.columns = [
-  { header: "Id", key: "id" },
-  { header: "Name", key: "name" },
-  { header: "Age", key: "age" },
-];
-
-// const idCol = worksheet.getColumn("id");
- const nameCol = worksheet.getColumn("B");
-// const ageCol = worksheet.getColumn(3);
-const data = ["store"]
-
-
-const row = worksheet.addRows([
-
-   ["Kripu", "Khadka", "hola" ,"\n", "New", "Line"],
+// //    ["Kripu", "Khadka", "hola" ,"\n", "New", "Line"],
   
-]);
+// // ]);
 
-//await workbook.xlsx.writeFile(filename);
-async function test(){
-await workbook.xlsx.writeFile("exceljs.xlsx");
-}
-test();
+// // //await workbook.xlsx.writeFile(filename);
+// // async function test(){
+// // await workbook.xlsx.writeFile("exceljs.xlsx");
+// // }
+// // test();
+// function getLocation() {
+//   if (navigator.geolocation) {
+//     navigator.geolocation.getCurrentPosition(showPosition);
+//   } else {
+//     console.log( "Geolocation is not supported by this browser.");
+//   }
+// }
+// function showPosition(position) {
+//   console.log( "Latitude: " +
+//     position.coords.latitude +
+//     "<br>Longitude: " +
+//     position.coords.longitude)
+   
+// }
+
+// getLocation()
+
+// const string = "Hi my name is kripu"
+
+// console.log(string.replace(" ", ""))
+// console.log(string.split(" ", 5));
+
+
+const fullDate = new Date();
+
+const tomorrowsDate = new  Date("2022-06-02")
+console.log(tomorrowsDate)
+console.log(fullDate)
+
