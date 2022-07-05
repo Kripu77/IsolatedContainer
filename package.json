@@ -2,13 +2,13 @@
   "name": "IsolatedContainer",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "nodemon index.js",
   "directories": {
     "test": "test"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon utill.js",
+    "start": "nodemon index.js",
     "build": "npm run-script build"
   },
   "repository": {
@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/Kripu77/IsolatedContainer#readme",
   "dependencies": {
+    "contentful": "^9.1.32",
     "exceljs": "^4.3.0",
     "hello.js": "^1.0.0",
     "nodemon": "^2.0.16"

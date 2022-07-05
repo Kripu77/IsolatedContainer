@@ -1,76 +1,103 @@
-const express = require('express');
+const express = require("express");
 const app = express();
-const {readFile}= require('fs');
-const util = require('util');
-const fileReader = util.promisify(readFile);
-const {data } = require('./data/road.js')
-const path = require('path');
-const errorHtml = path.resolve(__dirname, "../public/404.html")
+const port = 8000;
+const { data } = require("./data/road");
 
-//server static index.html page with required CSS 
-app.use(express.static("../public"))
+//UI templating function
 
+function tempalteHtml(data) {
+  const datax = `<div> 
+  <h1> The total lists of students available are: ${data.length} </h1>
+  <h2> You may click on the individual student button to view more about them: </h2>
+  <section> ${data.map((singleStudent) => {
+    let { no, name, age, tel, email } = singleStudent;
+    const body = `<h1> <a href="student/${no}" >  Students number ${no}'s name is ${name}</h1> </a>
+    <p> The student is ${age} years old </p>
+    <p> Contact Details of the student is <strong> ${tel} </strong> and ${email} </p>`;
 
-//homepage
-app.get("/home", (req, res)=>{
-res.send("<h1> This is our homepage</h1> <a href='/api/students'> See the list of students </a>")
-})
+    return body;
+  })} </section>
+   </div>`;
 
-//all students routes
-
-app.get("/api/students", (req, res)=>{
-
-    res.status(200).json(data)
-})
-
-
-//get single student data
-
-app.get("/api/students/:id",(req, res)=>{
-    
-const {id} = req.params
-console.log(id)
-
-const newData = data.find((singleStudent)=>{
-  return singleStudent.no === Number(id)
-
-})
-if (!newData) {
-  return res.status(404).send("Not Found");
+  return datax;
 }
 
+//single student generator
 
-return res.status(200).json(newData)
+function singleStudent(data) {
+  const datax = `<div> 
+  <section> ${data.map((singleStudent) => {
+    let { no, name, age, tel, email } = singleStudent;
+    const body = `<h1>   Students number ${no}'s name is ${name}</h1> 
+    <p> The student is ${age} years old </p>
+    <p> Contact Details of the student is <strong> ${tel} </strong> and ${email} </p>
+    <a href="/student"> Click here to go back to student page </a>
+    `;
 
+    return body;
+  })} </section>
+   </div>`;
 
-})
+  return datax;
+}
 
-//the query string parameter
+//route to home
 
-app.get("/api/v1/query", (req, res)=>{
+app.get("/", (req, res) => {
+  res.send("<h1> Welcome you are in the Home Page </h1>");
+});
 
-  const {search, limit}= req.query;
+//route to display the list of all students
+
+app.get("/student", (req, res) => {
+  res.send(tempalteHtml(data.slice(0, 10)));
+});
+
+// route to handle single student details:
+
+app.get(`/student/:id`, (req, res) => {
+  const { params } = req;
+  const id = params.id;
+
+  const student = data.find((singleStu) => {
+    return singleStu.no == id;
+  });
+  console.log(student);
+
+  if (!student) {
+    res
+      .status(404)
+      .send(
+        "<h1> 404 Error, The page that you're looking for doesn't exist </h1>"
+      );
+  }
+  if (student != undefined) {
+    res.send(`<h1> You're  currently looking for student number ${id} details</h1>
+  <div> The details are as follows: ${singleStudent([student])}
+
+  </div>`);
+  }
+});
+
+//route to handle query performed by user
+app.get("/api/student/search", (req, res)=>{
   console.log(req.query)
 
- let sortedProducts = [...data];
+  res.send("<h1> Hello Nibba </h1>")
 
- if(search){
-sortedProducts.filter((datxx)=>{
-return datxx.name.includes(search)
 })
- }
 
- if(limit){
- sortedProducts=  sortedProducts.slice(0, Number(limit))
- }
+//catch all invalid routes
 
- res.json(sortedProducts)
-})
-// //catch all routes
-app.get("*", (req, res)=>{
+app.get("*", (req, res) => {
+  res
+    .status(404)
+    .send("<h1> 404 Error, The page that you're looking for doesn't exist");
+});
 
-    res.status(404).sendFile(errorHtml)})
+//start server in port 8000
 
-app.listen(8080, ()=>{
-    console.log("Server running on port 8080")
-})
+app.listen(port, (err, res) => {
+  if (err) throw err;
+  console.log(`server running on ${port}`);
+});

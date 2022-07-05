@@ -70,4 +70,16 @@ const { writeFile } = require("fs/promises");
 //   }
 // });
 
-console.log("hola")
+//console.log("hola")
+
+const express = require('express');
+const app = express();
+
+
+// get route
+
+app.get("/", (req, res)=>{
+
+    res.send("Hello World")
+
+})
