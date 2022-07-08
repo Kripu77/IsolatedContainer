@@ -29,11 +29,11 @@ app.get("/student/search", (req, res)=>{
     const queryParams = req.query;
     let sortedStudents = [...data]
     const string = 'Hello'
-    console.log(string.toLocaleLowerCase().startsWith('h'))
+  
 
     sortedStudents = sortedStudents.filter((student)=>{
         console.log(student.name)
-        return student.name.toLowerCase().startsWith(queryParams.startsWith)
+        return Number(student.age) < 28;
     })
     console.log(sortedStudents)
     const studentList = sortedStudents.slice(0,queryParams.limit).map((student)=>{ 
@@ -44,7 +44,7 @@ app.get("/student/search", (req, res)=>{
     res.send(`<h1> view list of students available ${studentList}</h1>`);
 
 })
-//catch all route
+//catch all route1
 
 app.get("*", (req, res)=>{
 
