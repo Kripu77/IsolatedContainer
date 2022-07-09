@@ -13,30 +13,35 @@ app.use(express.static("../static"));
 
 //get list of all students
 app.get("/student", (req, res) => {
-  const { name, age, limit } = req.query;
-  console.log(limit)
+  const { search, age, limit } = req.query;
+
 
   let finalData = data.filter((singleData) => {
     return singleData.age <= age;
   });
+
+searchData = data.filter((singleData)=>{
+  return singleData.name.toLowerCase().startsWith(search)
+
+})
+
  
 
-
- 
-
-//   if (age) {
+  if (search) {
     
-//     res.status(200).send(`${headerCon(studentGen(finalData))}`);
-//   }
+    res.status(200).send(`${headerCon(studentGen(searchData))}`);
+  }
   if (age && limit) {
     res
       .status(200)
       .send(`${headerCon(studentGen(finalData.slice(0, Number(limit))))}`);
   }
 
-else{
-       res.status(200).send(`${headerCon(studentGen(data))}`);
+if(!finalData){
+ res.status(200).send(`${headerCon(studentGen(data))}`);
 }
+      
+
 
 });
 

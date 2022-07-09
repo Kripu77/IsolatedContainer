@@ -1,7 +1,13 @@
 //function which generates the list of students based on the passed
 
 function studentGen(data) {
+    
     let mainBody="";
+  if(data.length<1){
+    return `<h1> No result found</h1>`
+  }
+
+    
 
  if(data.length>1){
    mainBody = `  <h1> The total number of students are  ${data.length}</h1>`;

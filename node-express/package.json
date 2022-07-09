@@ -4,7 +4,7 @@
   "description": "learning express",
   "main": "new.js",
   "scripts": {
-    "start": "nodemon query.js",
+    "start": "nodemon middleware.js",
     "test": "npm start"
   },
   "author": "Kripu Khadka",
