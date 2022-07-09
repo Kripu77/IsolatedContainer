@@ -18,7 +18,7 @@ app.get("/", (req, res)=>{
 
 //     const file =  fs.readFile("../test/sub/file.txt", {encoding:"utf-8"}, (err, data)=>{
 // console.log(data)
-        res.json({data})
+        res.json(data)
 
     
 })

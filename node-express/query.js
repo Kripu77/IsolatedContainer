@@ -1,60 +1,61 @@
-//initialise express
-const express = require('express');
+//initilaise express
+
+const express = require("express");
 const app = express();
-const port = 8080;
-const {data} = require("./data/road")
+const path = require("path");
+const { data } = require("./data/road");
+const { studentGen } = require("./utils/studentGen");
+const { headerCon } = require("./utils/head");
+
+//first get route to homepage
+
+app.use(express.static("../static"));
+
+//get list of all students
+app.get("/student", (req, res) => {
+  const { name, age, limit } = req.query;
+  console.log(limit)
+
+  let finalData = data.filter((singleData) => {
+    return singleData.age <= age;
+  });
+ 
 
 
-//home route
+ 
 
-app.get("/",(req, res)=>{
-res.status(200).send("<h1> Welcome to the Home Page </h1>");
+//   if (age) {
+    
+//     res.status(200).send(`${headerCon(studentGen(finalData))}`);
+//   }
+  if (age && limit) {
+    res
+      .status(200)
+      .send(`${headerCon(studentGen(finalData.slice(0, Number(limit))))}`);
+  }
 
-})
-
-
-//query params
-function template(data){
-    const htmlTemp = `<div>
-    <h1> Student Names: </h1>
-    <br/>
-    <h2> ${data.name}</h2>
-     </div>`
-     return htmlTemp
+else{
+       res.status(200).send(`${headerCon(studentGen(data))}`);
 }
 
-app.get("/student/search", (req, res)=>{
+});
 
-    console.log(req.query);
-    const queryParams = req.query;
-    let sortedStudents = [...data]
-    const string = 'Hello'
-  
+//get details about only single student
 
-    sortedStudents = sortedStudents.filter((student)=>{
-        console.log(student.name)
-        return Number(student.age) < 28;
-    })
-    console.log(sortedStudents)
-    const studentList = sortedStudents.slice(0,queryParams.limit).map((student)=>{ 
-       
-        return template(student)
-    })
+app.get("/student/:no", (req, res) => {
+  const { no } = req.params;
+  const singleStudent = data.filter((singleStudent) => {
+    return singleStudent.no == no;
+  });
 
-    res.send(`<h1> view list of students available ${studentList}</h1>`);
+  //DO A RESTIRCTION SEARCH ON THE BASIS OF QUERY STRINGS
 
-})
-//catch all route1
+  res.status(200).send(`${headerCon(studentGen(singleStudent))}`);
+});
 
-app.get("*", (req, res)=>{
+//catch all route and use static file
+app.use("*", express.static("../static/404.html"));
 
-    res.status(404).send("<h1> The page that you're looking for doesn't exist </h1>")
-
-})
-//server running on specified port
-
-app.listen(port, (res, err)=>{
-    if(err) throw err
-    else console.log(`server running on port ${port}`)
-})
-
+app.listen(8080, (req, res) => {
+  console.log("Server running on port 8080");
+});
