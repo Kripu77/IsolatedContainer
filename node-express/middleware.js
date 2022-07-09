@@ -1,20 +1,17 @@
 const express = require('express');
 const app = express();
+const logger = require("./utils/logger")
+const authorise = require("./utils/authrorize")
 
 
-//logger 
-
-const logger = (req, res, next)=>{
-    const route = req.method;
-    const url = req.url;
-    const time = new Date().getTime();
-    console.log(route, url, time);
-    next();
-}
+//logger middleware
+app.use([logger, authorise])
 
 //home route
 
-app.get("/home", logger, (req, res)=>{
+
+
+app.get("/home",(req, res)=>{
 
 
     res.status(200).send(`<h1> This is our Homepage </h1> <a href="/about"> Click here to go to about me page </a>`)
@@ -25,7 +22,7 @@ app.get("/home", logger, (req, res)=>{
 //about route
 
 
-app.get("/about", logger, (req, res)=>{
+app.get("/about",  (req, res)=>{
 
     res.status(200).send("<h1> Hi, I'm Kripu Khadka </h1>")
 
