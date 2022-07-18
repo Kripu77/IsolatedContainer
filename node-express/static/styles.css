@@ -1,0 +1,31 @@
+*{
+    padding: 0;
+    margin: 0;
+    background-color: rgb(255, 255, 255);
+    color: rgb(98, 95, 95);
+   
+}
+
+body{
+    height: 100vh;
+    width: 100vw;
+    text-align: center;
+    
+}
+
+.form-panel{
+    max-width:200px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    line-height: 2rem;
+
+
+}
+
+.form-panel button{
+   
+    padding: 0px;
+    margin-top: 1rem;
+
+}

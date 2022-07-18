@@ -1,34 +1,30 @@
-const express = require('express'); 
-const fs = require('fs');
-const { ppid } = require('process');
+const express = require('express');
 const app = express();
-const util = require('util')
-const promisifiedReader = util.promisify(fs.readFile)
-const port = 8080;
-const data = [];
+const{ home, catchAll, handleLogin} = require("./handlers/routeHandlers");
+const port = 8000;
 
-async function test(){
-data.push(await promisifiedReader("../test/sub/file.txt", {encoding:"utf-8"}))
-}
-test();
+//middleware to the get the login static page
+app.use(express.static("static"))
 
 
+//built in body parser
+app.use(express.urlencoded({extended:false}))
 
-app.get("/", (req, res)=>{
+//home route
+app.get("/", home);
 
-//     const file =  fs.readFile("../test/sub/file.txt", {encoding:"utf-8"}, (err, data)=>{
-// console.log(data)
-        res.json(data)
+//login
+app.post("/login", handleLogin )
 
-    
+//catch all routes
+app.get("*", catchAll);
+
+//start server
+app.listen(port, (err, res)=>{
+
+    if(err) throw err;
+    else{
+        console.log(`Server running on port ${port}`)
+    }
+
 })
-
-app.get("/about",(req, res)=>{
-res.send('<h1> this is our about page </h1>')
-})
-
-app.get("*",(req,res)=>{
-res.status(404).send("<h1> 404 Page not founf </h1> ")
-})
-
-app.listen(port, ()=>console.log("port running on 8080"))
