@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const{ home, catchAll, handleLogin, students} = require("./handlers/routeHandlers");
+const{ home, catchAll, handleLogin, students, postman, updateData} = require("./handlers/routeHandlers");
 const port = 8000;
 
 //middleware to the get the login static page
@@ -21,6 +21,12 @@ app.get("/students", students)
 
 //login
 app.post("/login", handleLogin )
+
+//handle postman post 
+app.post("/login/postman", postman);
+
+
+app.put("/students/update/:no", updateData )
 
 //catch all routes
 app.get("*", catchAll);

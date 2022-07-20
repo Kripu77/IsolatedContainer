@@ -36,4 +36,30 @@ const handleLogin = (req, res) => {
   }
 };
 
-module.exports = { home, catchAll, handleLogin, students };
+const postman = (req, res)=>{
+  console.log(req.params)
+
+  const {no, name, tel, email, age} = req.body;
+  if(no && name && tel && email && age){
+    res.status(200).send({
+      success:true, data: [...data, {no, name, tel, email, age
+      }]
+    })
+  }
+  else{
+    res.status(500).send({error:true, data:"Failed"})
+  }
+}
+
+const updateData = (req, res)=>{
+
+  const {name} = req.body;
+  console.log(name )
+  console.log(req.params)
+  res.send({name})
+
+
+}
+
+
+module.exports = { home, catchAll, handleLogin, students, postman, updateData };
