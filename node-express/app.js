@@ -1,42 +1,40 @@
 const express = require('express');
 const app = express();
-const{ home, catchAll, handleLogin, students, postman, updateData} = require("./handlers/routeHandlers");
-const port = 8000;
-
-//middleware to the get the login static page
-app.use(express.static("static"))
+const {home, students, addStudent, catchAll, singleStudent, updateStudent, deleteStudent} = require("./handlers/routes")
+const port = 8080;
 
 
-//built in body parser
-app.use(express.urlencoded({extended:false}))
+//body parser middleware
+app.use(express.urlencoded({extended:true}));
+app.use(express.json());
 
-//json data
-app.use(express.json())
 
 //home route
+
 app.get("/", home);
 
 //get all students
-app.get("/students", students)
+app.get("/api/students", students);
 
-//login
-app.post("/login", handleLogin )
+//get single student
+app.get("/api/students/:no", singleStudent)
 
-//handle postman post 
-app.post("/login/postman", postman);
+//add new students
+app.post("/api/students", addStudent);
 
+//update existing students details
+app.put("/api/students/:no", updateStudent);
 
-app.put("/students/update/:no", updateData )
+//delete student details
+
+app.delete("/api/students/:no", deleteStudent)
 
 //catch all routes
 app.get("*", catchAll);
 
-//start server
+
+//server 
 app.listen(port, (err, res)=>{
-
     if(err) throw err;
-    else{
-        console.log(`Server running on port ${port}`)
-    }
-
+    else console.log(`Server Runnin on port ${port}`)
 })
