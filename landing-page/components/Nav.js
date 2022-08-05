@@ -1,8 +1,8 @@
 const Nav = () => {
   return (
-    <section className="sticky z-10 md:flex justify-between px-10 py-5 items-center text-center">
+    <section className="sticky top-0 z-10 md:flex justify-between px-10 py-5 items-center text-center bg-white">
       <svg
-        className="hover:scale-150 transition-all duration-300"
+        className="hover:scale-150 transition-all duration-500"
         width="22"
         height="44"
         viewBox="0 0 115 182"
