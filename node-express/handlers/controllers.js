@@ -77,35 +77,31 @@ const updateStudent = (req, res) => {
 
 //delete student
 const deleteStudent = (req, res) => {
+  const { no } = req.params;
+  console.log(no);
 
-    const {no}= req.params;
-    console.log(no)
+  const deletedList = data.filter((student) => {
+    return student.no !== Number(no);
+  });
+  const checkList = data.find((student) => {
+    return student.no === Number(no);
+  });
 
-    const deletedList = data.filter((student)=>{
+  if (!checkList) {
+    res
+      .status(404)
+      .json({
+        error: "Data deletion unsuccessful, no nodes found with such id",
+      });
+  }
 
-        return student.no !== Number(no)
-
-    })
-    const checkList = data.find((student)=>{
-
-
-    return student.no === Number(no)
-    })
-
-    if(!checkList){
-        res.status(404).json({error:"Data deletion unsuccessful, no nodes found with such id"})
-    }
-
-    if(deletedList && checkList){
-        res
-          .status(200)
-          .json({
-            success: true,
-            data: `Successfully deleted student no ${no}`,
-            newData: deletedList
-          });
-    }
-  
+  if (deletedList && checkList) {
+    res.status(200).json({
+      success: true,
+      data: `Successfully deleted student no ${no}`,
+      newData: deletedList,
+    });
+  }
 };
 
 //catch all route

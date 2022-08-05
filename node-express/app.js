@@ -1,6 +1,8 @@
 const express = require('express');
 const app = express();
-const {home, students, addStudent, catchAll, singleStudent, updateStudent, deleteStudent} = require("./handlers/routes")
+const {home, catchAll} = require("./handlers/controllers");
+const { homeRouter } = require('./routes/home');
+const {router} = require("./routes/students")
 const port = 8080;
 
 
@@ -8,29 +10,12 @@ const port = 8080;
 app.use(express.urlencoded({extended:true}));
 app.use(express.json());
 
-
-//home route
-
-app.get("/", home);
-
-//get all students
-app.get("/api/students", students);
-
-//get single student
-app.get("/api/students/:no", singleStudent)
-
-//add new students
-app.post("/api/students", addStudent);
-
-//update existing students details
-app.put("/api/students/:no", updateStudent);
-
-//delete student details
-
-app.delete("/api/students/:no", deleteStudent)
-
-//catch all routes
-app.get("*", catchAll);
+//students route middleware
+app.use("/api/students/", router )
+//home route middleware
+app.use("/", homeRouter);
+//catch all routes middleware
+app.use("*", catchAll);
 
 
 //server 
