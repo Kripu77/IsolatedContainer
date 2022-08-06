@@ -6,6 +6,9 @@ import Nav from "../components/Nav";
 import Hero from "../components/Hero";
 import Landing from "../components/Landing";
 import Info from "../components/Info";
+import Card from "../components/Card";
+import Eth from "../components/Eth";
+import Explore from "../components/Explore";
 
 
 export default function Home() {
@@ -15,6 +18,9 @@ export default function Home() {
       <Hero />
       <Landing />
       <Info />
+      <Card/>
+      <Eth/>
+      <Explore/>
     </main>
   );
 }

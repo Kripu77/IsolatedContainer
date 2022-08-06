@@ -1,6 +1,6 @@
 const Nav = () => {
   return (
-    <section className="sticky top-0 z-10 md:flex justify-between px-10 py-5 items-center text-center bg-white">
+    <section className="sticky top-0 z-10 flex justify-between px-10 py-5 items-center text-center bg-white border-b-2 border-gray-200">
       <svg
         className="hover:scale-150 transition-all duration-500"
         width="22"
@@ -47,7 +47,7 @@ const Nav = () => {
       </svg>
 
       <section>
-        <ul className="md:flex md:space-x-6">
+        <ul className=" hidden md:flex md:space-x-6">
           <li className="hover:text-purple-600 transition-all hover:duration-850 ease-in-out ">
             Home
           </li>
@@ -64,6 +64,22 @@ const Nav = () => {
             Developers
           </li>
         </ul>
+      </section>
+      <section className="md:hidden hover:rotate-180 transition-all duration-300">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="w-6 h-6"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            d="M4 6h16M4 12h16m-7 6h7"
+          />
+        </svg>
       </section>
     </section>
   );

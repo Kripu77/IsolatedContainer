@@ -9,7 +9,7 @@ const Hero = () => {
         <span className="underline hover:no-underline ">More info on the Merge.</span>
       </div>
 
-      <Image src={heroImage} layout="responsive" objectFit="cover" />
+      <Image src={heroImage} layout="responsive" objectFit="cover" placeholder="blur" />
     </section>
   );
 }
