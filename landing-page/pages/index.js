@@ -9,6 +9,9 @@ import Info from "../components/Info";
 import Card from "../components/Card";
 import Eth from "../components/Eth";
 import Explore from "../components/Explore";
+import Asset from "../components/Asset";
+import ReactSlider from "../components/ReactSlider";
+
 
 
 export default function Home() {
@@ -18,9 +21,13 @@ export default function Home() {
       <Hero />
       <Landing />
       <Info />
-      <Card/>
-      <Eth/>
-      <Explore/>
+      <Card />
+      <Eth />
+      <Explore />
+      <Asset/>
+
+      
+  
     </main>
   );
 }

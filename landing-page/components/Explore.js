@@ -3,12 +3,12 @@ import infra from "../images/impact_transparent.webp";
 
 const Explore = () => {
   return (
-    <section className=" items-center bg-orange-200 text-justify p-5 ">
+    <section className=" items-center bg-orange-200 text-left  p-10 ">
       <div className=" lg:flex flex-row-reverse items-center justify-center">
         <div className="max-w-2xl mx-auto">
           <Image src={infra} placeholder="blur" objectFit="cover" />
         </div>
-        <div className=" max-w-4xl mx-auto md:space-y-3  py-5">
+        <div className=" max-w-4xl mx-auto space-y-6  py-5 ">
           <h1 className="text-3xl font-bold"> A fairer financial system</h1>
           <p>
             Today, billions of people can’t open bank accounts, others have

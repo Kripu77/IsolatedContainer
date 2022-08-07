@@ -6,7 +6,7 @@ const Nav = () => {
   const [scrollPosition, setScrollPosition] = React.useState("");
   const [scrolled, setIsScrolled] = React.useState(false);
   const [isScrolledUp, setisScrolledUp] = React.useState(false);
-  const genericHamburgerLine = `h-1 w-8 my-1 rounded-sm bg-black transition ease transform duration-300`;
+  const genericHamburgerLine = `h-1 w-6 my-1 rounded-sm bg-black font-black transition ease transform duration-300`;
 
   //width handler function
   const handleWidth = () => {
@@ -133,7 +133,7 @@ const Nav = () => {
         <ul
           className={
             isOpen
-              ? " fixed top-20 z-10 left-0 min-h-screen min-w-full transition-all bg-white bg-opacity-95 duration-300 text-3xl "
+              ? " fixed top-20 z-10 left-0 min-h-screen min-w-full transition-all bg-white bg-opacity-95 duration-300 text-xl "
               : " hidden  md:flex md:space-x-6"
           }
         >
