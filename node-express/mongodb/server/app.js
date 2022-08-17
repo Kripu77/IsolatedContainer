@@ -4,10 +4,7 @@ const morgan = require("morgan");
 const IDS = require("../models/ids")
 const {connectDB} = require('../connection/dbconnect');
 const ids = require('../models/ids');
-const uri =
-  "mongodb+srv://kripuk:hola@cluster0.ojpb3.mongodb.net/PartnerRecords?retryWrites=true&w=majority";
-
-
+const uri =""
 //logger middleare fn
 app.use(morgan("tiny"))
 
