@@ -14,8 +14,8 @@ const Eth = () => {
           Marpha is a technology that&apos;s home to digital money, global
           payments, and applications. The community has built a booming digital
           economy, bold new ways for creators to earn online, and so much more.
-          It's open to everyone, wherever you are in the world – all you need is
-          the internet.
+          It&apos;s open to everyone, wherever you are in the world – all you
+          need is the internet.
         </p>
         <div className="space-y-6 md:space-x-8">
           <button className="rounded-md border-2 bg-blue-600 text-white py-2 px-8 hover:bg-blue-800 hover:scale-105 transition-all duration-300">
