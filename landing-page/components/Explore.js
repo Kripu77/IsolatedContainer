@@ -11,8 +11,8 @@ const Explore = () => {
         <div className=" max-w-4xl mx-auto space-y-6  py-5 ">
           <h1 className="text-3xl font-bold"> A fairer financial system</h1>
           <p>
-            Today, billions of people can’t open bank accounts, others have
-            their payments blocked. Ethereum's decentralized finance (DeFi)
+            Today, billions of people can&apos;t open bank accounts, others have
+            their payments blocked. Ethereum&apos;s decentralized finance (DeFi)
             system never sleeps or discriminates. With just an internet
             connection, you can send, receive, borrow, earn interest, and even
             stream funds anywhere in the world.

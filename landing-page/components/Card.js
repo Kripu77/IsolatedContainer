@@ -6,8 +6,8 @@ import future from "../images/developers-eth-blocks.webp";
 
 const Card = () => {
   return (
-    <section className=" lg:flex  text-left mx-auto lg:space-x-10 ">
-      <div className="max-w-3xl mb-10 mx-auto rounded-md  border cursor-pointer border-gray-400 hover:scale-105 transition-all duration-500">
+    <section className=" lg:flex  text-left mx-auto lg:space-x-10 p-10 ">
+      <div className="max-w-3xl  md:w-full mb-10 mx-auto rounded-md  border cursor-pointer border-gray-400 hover:scale-105 transition-all duration-500">
         <div className="bg-gradient-to-r from-cyan-200 to-blue-100">
           <Image
             src={wallet}
@@ -26,7 +26,7 @@ const Card = () => {
           </p>{" "}
         </div>
       </div>
-      <div className="max-w-3xl mb-10 mx-auto rounded-md border cursor-pointer border-gray-400 hover:scale-105 transition-all duration-500">
+      <div className="max-w-3xl md:w-full mb-10 mx-auto rounded-md border cursor-pointer border-gray-400 hover:scale-105 transition-all duration-500">
         <div className="bg-gradient-to-r from-cyan-200 to-blue-100">
           <Image
             src={eth}
@@ -45,7 +45,7 @@ const Card = () => {
           </p>{" "}
         </div>
       </div>
-      <div className="max-w-3xl mb-10 mx-auto rounded-md border cursor-pointer border-gray-400 hover:scale-105 transition-all duration-500">
+      <div className="max-w-3xl md:w-full mb-10 mx-auto rounded-md border cursor-pointer border-gray-400 hover:scale-105 transition-all duration-500">
         <div className="bg-gradient-to-r from-cyan-200 to-blue-100">
           <Image
             src={doge}
@@ -64,7 +64,7 @@ const Card = () => {
           </p>{" "}
         </div>
       </div>
-      <div className="max-w-3xl mb-10 mx-auto rounded-md border cursor-pointer border-gray-400 hover:scale-105 transition-all duration-500">
+      <div className="max-w-3xl mb-10 mx-auto rounded-md border cursor-pointer border-gray-400 md:w-full hover:scale-105 transition-all duration-500">
         <div className="bg-gradient-to-r from-cyan-200 to-blue-100">
           <Image
             src={future}
@@ -78,7 +78,8 @@ const Card = () => {
           <h1 className="font-bold ">Start Building</h1>
           <p className="text-gray-600">
             {" "}
-            Build your own on top of our Maprha JS SDK, please explore the DOCS and get connected via Discord Server.
+            Build your own on top of our Maprha JS SDK, please explore the DOCS
+            and get connected via Discord Server.
           </p>{" "}
         </div>
       </div>

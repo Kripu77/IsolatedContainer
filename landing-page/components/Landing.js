@@ -4,7 +4,7 @@ const Landing = () => {
   return (
     <section className="py-10 mx-10 text-center leading-10">
       <div className=" max-w-xs mx-auto">
-        <h1 className="text-gray-500 font-semibold border-b-2 transition-all duration-300 hover:border-gray-700">
+        <h1 className="text-gray-500 leading-10 text-orange-600 font-italic text-lg border-b-2 transition-all duration-300 tracking-wider hover:border-orange-600">
           Launching: 2022/10/10
         </h1>
       </div>
