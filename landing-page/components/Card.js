@@ -1,8 +1,11 @@
 import Image from "next/image";
 import wallet from "../images/wallet-cropped.webp"; 
 import data from "../Data/landingData";
+import { useMarphaStore } from "../store/dataStore";
 
 const Card = () => {
+const marpha = useMarphaStore((state)=>state.dataHouse);
+console.log(marpha)
   return (
     <section className=" lg:flex flex-row flex-wrap  text-left mx-auto   md:p-10 ">
       {
